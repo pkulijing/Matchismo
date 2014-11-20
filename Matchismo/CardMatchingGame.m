@@ -12,6 +12,7 @@
 
 @property (nonatomic,readwrite)NSInteger score;
 @property (nonatomic,strong) NSMutableArray *cards; //of Card
+
 @end
 
 @implementation CardMatchingGame
@@ -20,32 +21,25 @@ static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
--(NSMutableArray *)historyMessages
+-(NSMutableArray *)historyOfCards
 {
-    if(!_historyMessages)_historyMessages = [[NSMutableArray alloc] init];
-    return _historyMessages;
+    if(!_historyOfCards)_historyOfCards = [[NSMutableArray alloc] init];
+    return _historyOfCards;
+}
+-(NSMutableArray *)historyOfStatus
+{
+    if(!_historyOfStatus)_historyOfStatus = [[NSMutableArray alloc] init];
+    return _historyOfStatus;
+}
+-(NSMutableArray *)historyOfScore
+{
+    if(!_historyOfScore)_historyOfScore = [[NSMutableArray alloc] init];
+    return _historyOfScore;
 }
 -(NSMutableArray *)cards
 {
     if(!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
-}
-
--(BOOL)checkLeftMatch
-{
-    for(Card *card in self.cards)
-    {
-        if(card.isMatched)continue;
-        for(Card *otherCard in self.cards)
-        {
-            if([self.cards indexOfObject:card] == [self.cards indexOfObject:otherCard] ||
-               otherCard.isMatched)
-                continue;
-            if([card match:@[otherCard]])
-                return YES;
-        }
-    }
-    return NO;
 }
 
 -(instancetype)initWithCardCount:(NSUInteger)count
@@ -83,18 +77,9 @@ static const int COST_TO_CHOOSE = 1;
     
     if(!card.isMatched)
     {
-        NSString *message = [[NSString alloc] init];
         if(card.isChosen)
         {
             card.chosen = NO;
-            for(Card *otherCard in self.cards)
-            {
-                if(otherCard.isChosen && !otherCard.isMatched)
-                {
-                    message = [message stringByAppendingString:otherCard.contents];
-                }
-            }
-            [self.historyMessages addObject:message];
         }
         else
         {
@@ -107,11 +92,9 @@ static const int COST_TO_CHOOSE = 1;
                     NSNumber *cardIndex = [NSNumber numberWithUnsignedInteger:[self.cards indexOfObject:otherCard]];
                     [otherCardIndexs addObject:cardIndex];
                     [otherCards addObject:otherCard];
-                    message = [message stringByAppendingString:otherCard.contents];
                 }
             }
-            message = [message stringByAppendingString:card.contents];
-            if([otherCardIndexs count] == self.matchMode - 1)
+            if([otherCards count] == self.matchMode - 1)
             {
                 int matchScore = [card match:otherCards];
                 if(matchScore)
@@ -122,11 +105,8 @@ static const int COST_TO_CHOOSE = 1;
                     {
                         [self cardAtIndex: otherCardIndex.unsignedIntegerValue].matched = YES;
                     }
-                    NSString *tempMessage = @"Matched ";
-                    tempMessage = [tempMessage stringByAppendingString:message];
-                    tempMessage = [tempMessage stringByAppendingString:
-                                   [NSString stringWithFormat:@" for %d points",matchScore*MATCH_BONUS]];
-                    message = tempMessage;
+                    [self.historyOfStatus addObject:@1];
+                    [self.historyOfScore addObject:[NSNumber numberWithInt:(matchScore * MATCH_BONUS)]];
                 }
                 else
                 {
@@ -135,14 +115,15 @@ static const int COST_TO_CHOOSE = 1;
                     {
                         [self cardAtIndex: otherCardIndex.unsignedIntegerValue].chosen = NO;
                     }
-                    message = [message stringByAppendingString:[NSString stringWithFormat:@" don't match. %d points penalty!",MISMATCH_PENALTY]];
+                    [self.historyOfStatus addObject:@0];
                 }
+                [otherCards addObject:card];
+                [self.historyOfCards addObject:otherCards];
+                [self.historyOfScore addObject:[NSNumber numberWithInt:MISMATCH_PENALTY]];
 
             }
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
-            [self.historyMessages addObject:message];
-           // NSLog(@"count: %d\n",self.historyMessages.count);
         }
     }
 }

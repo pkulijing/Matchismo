@@ -17,9 +17,10 @@
                        usingdeck:(Deck *)deck;
 -(void)chooseCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
--(BOOL)checkLeftMatch;
 
-@property (nonatomic,readonly) NSInteger score;
-@property (nonatomic)NSUInteger matchMode;
-@property (nonatomic)NSMutableArray *historyMessages;
+@property (nonatomic,readonly) int score;
+@property (nonatomic)int matchMode;
+@property (nonatomic)NSMutableArray *historyOfCards;
+@property (nonatomic)NSMutableArray *historyOfStatus;
+@property (nonatomic)NSMutableArray *historyOfScore;
 @end

@@ -17,11 +17,11 @@
     {
         for(NSUInteger number = 1; number <= 3; number++)
         {
-            for(NSString *color in [SetCard validColors])
+            for(NSUInteger color = 1; color <= 3; color++)
             {
-                for(NSString *shading in [SetCard validShadings])
+                for(NSUInteger shading = 1; shading <= 3; shading++)
                 {
-                    for(NSString *shape in [SetCard validShapes])
+                    for(NSUInteger shape  = 1; shape <= 3; shape++)
                     {
                         SetCard *card = [[SetCard alloc] init];
                         card.number = number;
