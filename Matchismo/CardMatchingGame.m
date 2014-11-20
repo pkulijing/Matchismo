@@ -61,7 +61,7 @@ static const int COST_TO_CHOOSE = 1;
                 break;
             }
         }
-        self.matchMode = 2;
+        self.matchMode = 3;
     }
     return self;
 }

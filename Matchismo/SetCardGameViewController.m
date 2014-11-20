@@ -29,15 +29,15 @@
 
 +(NSArray *)validColors //of color
 {
-    return @[[UIColor greenColor],[UIColor redColor],[UIColor blueColor]];
+    return @[[UIColor redColor],[UIColor purpleColor],[UIColor blueColor]];
 }
 +(NSArray *)validShapes //of string
 {
     return @[@"▲",@"●",@"◼︎"];
 }
-+(NSArray *)validShapings // of NSNumber
++(NSArray *)validShadings // of NSNumber
 {
-    return @[@1,@0.5,@0.1];
+    return @[@(NSUnderlineStyleNone),@(NSUnderlineStyleSingle | NSUnderlinePatternSolid),@(NSUnderlineStyleSingle | NSUnderlinePatternDot)];
 }
 
 -(NSAttributedString *)titleForCard:(Card *)card
@@ -53,13 +53,14 @@
         titleContent = [titleContent stringByAppendingString:[SetCardGameViewController validShapes][setCard.shape - 1]];
     }
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:titleContent];
-    [title setAttributes:@{NSForegroundColorAttributeName :[SetCardGameViewController validColors][setCard.color - 1]} range:NSMakeRange(0,title.length)];
+    [title setAttributes:@{NSForegroundColorAttributeName:[SetCardGameViewController validColors][setCard.color - 1],NSUnderlineStyleAttributeName:[SetCardGameViewController validShadings][setCard.shading - 1]}
+                   range:NSMakeRange(0,title.length)];
     return title;
     
 }
 -(UIImage *)backgroundImageForCard:(Card *)card
 {
-    return (card.isChosen) ? [UIImage imageNamed:@"cardFront"] :[UIImage imageNamed:@"cardBack"];
+    return (card.isChosen) ? [UIImage imageNamed:@"setCardBack"] :[UIImage imageNamed:@"setCardFront"];
 }
 
 -(void)updateHistory
@@ -72,7 +73,7 @@
         NSNumber *stepScore = (NSNumber *)self.game.historyOfScore[i];
         if(status.intValue == 1)
         {
-            [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString:@"Found set: "]];
+            [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString:@"Found set "]];
             for(id card in cards)
             {
                 if([card isKindOfClass:[SetCard class]])
@@ -80,8 +81,8 @@
                     SetCard *setCard = (SetCard *)card;
                     [historyContent appendAttributedString:[self titleForCard:setCard]];
                 }
-                [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %d points.",stepScore.intValue]]];
             }
+            [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" for %d points.\n",stepScore.intValue]]];
         }
         else
         {
@@ -92,8 +93,8 @@
                     SetCard *setCard = (SetCard *)card;
                     [historyContent appendAttributedString:[self titleForCard:setCard]];
                 }
-                [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString: [NSString stringWithFormat:@" do not match. %d points penalty.",stepScore.intValue]]];
             }
+            [historyContent appendAttributedString:[[NSAttributedString alloc] initWithString: [NSString stringWithFormat:@" do not match. %d points penalty.\n",stepScore.intValue]]];
         }
     }
     self.historyString = historyContent;

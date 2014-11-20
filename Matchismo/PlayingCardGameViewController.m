@@ -25,7 +25,7 @@
 }
 -(NSAttributedString *)titleForCard:(Card *)card
 {
-    NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.contents];
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.contents attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     return (card.isChosen) ? title : [[NSAttributedString alloc] init];
 }
 -(UIImage *)backgroundImageForCard:(Card *)card
@@ -51,8 +51,8 @@
                     PlayingCard *playingCard = (PlayingCard *)card;
                     [historyContent appendString:playingCard.contents];
                 }
-                [historyContent appendString:[NSString stringWithFormat:@" for %d points.",stepScore.intValue]];
             }
+            [historyContent appendString:[NSString stringWithFormat:@" for %d points.\n",stepScore.intValue]];
         }
         else
         {
@@ -63,11 +63,11 @@
                     PlayingCard *playingCard = (PlayingCard *)card;
                     [historyContent appendString:playingCard.contents];
                 }
-                [historyContent appendString:[NSString stringWithFormat:@" do not match. %d points penalty.",stepScore.intValue]];
             }
+            [historyContent appendString:[NSString stringWithFormat:@" do not match. %d points penalty.\n",stepScore.intValue]];
         }
     }
-    self.historyString = [[NSMutableAttributedString alloc] initWithString:historyContent];
+    self.historyString = [[NSMutableAttributedString alloc] initWithString:historyContent attributes:@{NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]}];
 }
 
 

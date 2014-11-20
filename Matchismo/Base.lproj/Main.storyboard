@@ -8,6 +8,7 @@
         <!--Playing Card-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="PlayingCardGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bWa-ca-IBK"/>
@@ -239,20 +240,22 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0BO-17-Qx3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aky-r7-ahp">
-                                <rect key="frame" x="232" y="392" width="64" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEe-qW-3eu">
+                                <rect key="frame" x="232" y="395" width="64" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="redealButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XVY-vh-fsM"/>
+                                    <action selector="redealButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="10n-1f-ei8"/>
+                                    <action selector="redealButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UKR-uX-NbC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Playing Card" id="aKA-Qx-jLy">
                         <barButtonItem key="rightBarButtonItem" title="History" id="8iF-SP-aUm">
                             <connections>
@@ -260,6 +263,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="scoreLabel" destination="xus-6A-DcE" id="whv-Fc-4Mj"/>
@@ -289,7 +293,6 @@
                         <outletCollection property="cardButtons" destination="yCx-KY-pz6" id="ErG-Wb-Qve"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="681" y="30"/>
         </scene>
@@ -322,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qV-nV-yxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="337"/>
+            <point key="canvasLocation" x="1245" y="301"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZaK-9N-JXz">
@@ -659,7 +662,7 @@
         <scene sceneID="peE-Se-qb7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8zU-DV-1y5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playing Card" id="QnS-jk-lcc"/>
+                    <tabBarItem key="tabBarItem" title="Playing Card" image="playingIcon" id="QnS-jk-lcc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5nJ-dH-Lmk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -678,7 +681,7 @@
         <scene sceneID="m7Z-ef-6FU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xOY-Uc-vjJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Set Card" id="QLv-cK-xOm"/>
+                    <tabBarItem key="tabBarItem" title="Set Card" image="setIcon" id="QLv-cK-xOm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="869-Qm-RhX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -696,6 +699,8 @@
     </scenes>
     <resources>
         <image name="cardBack" width="64" height="96"/>
+        <image name="playingIcon" width="30" height="30"/>
+        <image name="setIcon" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
