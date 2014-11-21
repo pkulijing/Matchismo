@@ -16,7 +16,10 @@
 
 
 @implementation SetCardGameViewController
-
+-(NSUInteger)matchMode
+{
+    return 3;
+}
 
 -(Deck *)createDeck
 {
@@ -99,22 +102,6 @@
     }
     self.historyString = historyContent;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @end

@@ -14,15 +14,16 @@
 @end
 
 @implementation PlayingCardGameViewController
+
+-(NSUInteger)matchMode
+{
+    return 2;
+}
 -(Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
 }
 
--(void)chooseMatchMode
-{
-    self.game.matchMode = 2;
-}
 -(NSAttributedString *)titleForCard:(Card *)card
 {
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:card.contents attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];

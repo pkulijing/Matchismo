@@ -24,9 +24,10 @@
 -(CardMatchingGame *)game
 {
     if(!_game)
-        _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count
-                                                  usingdeck:[self createDeck]];
-    //[self chooseMatchMode];
+    {
+        _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingdeck:[self createDeck]];
+        _game.matchMode = [self matchMode];
+    }
     return _game;
 }
 
@@ -42,8 +43,10 @@
         }
     }
 }
-
--(void)chooseMatchMode{}
+-(NSUInteger)matchMode
+{
+    return 3;
+}
 -(void)updateHistory{}
 -(Deck *)createDeck{return nil;}
 -(NSString *)titleForCard:(Card *)card{return nil;}
@@ -58,7 +61,7 @@
         [cardButton setAttributedTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+        self.navigationItem.title = [NSString stringWithFormat:@"Score : %d", self.game.score];
     }
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -66,11 +69,9 @@
     [super viewWillAppear:animated];
     [self updateUI];
 }
-
-- (IBAction)redealButton:(UIButton *)sender
+- (IBAction)resetButton:(UIBarButtonItem *)sender
 {
-    self.game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count
-                                                  usingdeck:[self createDeck]];
+    self.game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingdeck:[self createDeck]];
     [self updateUI];
 }
 

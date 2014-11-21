@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "set.png"
+      "filename" : "setIcon@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "set-1.png"
+      "filename" : "setIcon@2x.png"
     },
     {
       "idiom" : "universal",

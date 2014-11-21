@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="k02-0f-tsM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="k02-0f-tsM">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Playing Card-->
+        <!--Score : 0-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="PlayingCardGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bWa-ca-IBK"/>
@@ -18,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xus-6A-DcE">
-                                <rect key="frame" x="16" y="395" width="136" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niS-Bs-4aU">
                                 <rect key="frame" x="16" y="72" width="40" height="60"/>
                                 <state key="normal" backgroundImage="cardBack">
@@ -240,23 +233,70 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0BO-17-Qx3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEe-qW-3eu">
-                                <rect key="frame" x="232" y="395" width="64" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWm-UQ-Jl7">
+                                <rect key="frame" x="16" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="redealButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="10n-1f-ei8"/>
-                                    <action selector="redealButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UKR-uX-NbC"/>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UJv-Et-F8m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-Bg-cDP">
+                                <rect key="frame" x="64" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UXN-Uj-W3w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZj-ce-6QO">
+                                <rect key="frame" x="112" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B2N-wt-jAF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5t-29-QN6">
+                                <rect key="frame" x="160" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Isf-oG-eJB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGQ-Hc-dGN">
+                                <rect key="frame" x="208" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Q6O-y8-pH4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYR-jB-8Vy">
+                                <rect key="frame" x="256" y="344" width="40" height="60"/>
+                                <state key="normal" backgroundImage="cardBack">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xyB-80-mcA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Playing Card" id="aKA-Qx-jLy">
+                    <navigationItem key="navigationItem" title="Score : 0" id="aKA-Qx-jLy">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="N9u-we-o6a">
+                            <connections>
+                                <action selector="resetButton:" destination="vXZ-lx-hvc" id="hVd-aJ-YIk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="History" id="8iF-SP-aUm">
                             <connections>
                                 <segue destination="0fv-pP-4R4" kind="push" identifier="showHistory" id="AS4-or-5dp"/>
@@ -266,7 +306,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="scoreLabel" destination="xus-6A-DcE" id="whv-Fc-4Mj"/>
                         <outletCollection property="cardButtons" destination="niS-Bs-4aU" id="KpY-JF-4VB"/>
                         <outletCollection property="cardButtons" destination="Ryw-j0-9EQ" id="Ghh-nj-aNx"/>
                         <outletCollection property="cardButtons" destination="Mls-no-L3A" id="nsZ-kU-Yjy"/>
@@ -291,8 +330,15 @@
                         <outletCollection property="cardButtons" destination="Jvc-fQ-WWa" id="Kam-3G-rW6"/>
                         <outletCollection property="cardButtons" destination="B9Z-DL-sXR" id="5Ji-r4-4YT"/>
                         <outletCollection property="cardButtons" destination="yCx-KY-pz6" id="ErG-Wb-Qve"/>
+                        <outletCollection property="cardButtons" destination="BYR-jB-8Vy" id="LyN-TT-CF5"/>
+                        <outletCollection property="cardButtons" destination="EGQ-Hc-dGN" id="xAT-DW-gcr"/>
+                        <outletCollection property="cardButtons" destination="A5t-29-QN6" id="n1i-t4-asC"/>
+                        <outletCollection property="cardButtons" destination="vZj-ce-6QO" id="06Z-Yo-JK5"/>
+                        <outletCollection property="cardButtons" destination="ZTQ-Bg-cDP" id="EQO-8t-D6N"/>
+                        <outletCollection property="cardButtons" destination="pWm-UQ-Jl7" id="Hwk-Sg-7Fe"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="681" y="30"/>
         </scene>
@@ -346,7 +392,7 @@
             </objects>
             <point key="canvasLocation" x="-393" y="301"/>
         </scene>
-        <!--Set Card-->
+        <!--Score : 0-->
         <scene sceneID="9I4-XE-d1E">
             <objects>
                 <viewController id="Xy9-Mi-zyl" customClass="SetCardGameViewController" sceneMemberID="viewController">
@@ -578,24 +624,6 @@
                                     <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="W1v-9y-hEX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-Xt-OPK">
-                                <rect key="frame" x="16" y="395" width="136" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTu-Kf-Pjj">
-                                <rect key="frame" x="244" y="395" width="64" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="redealButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ta6-Ec-joW"/>
-                                    <action selector="redealButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="cSg-1p-rDc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-qU-aWh">
                                 <rect key="frame" x="16" y="72" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -616,18 +644,64 @@
                                     <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="CPi-Kw-Ef5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWm-ut-eUO">
+                                <rect key="frame" x="16" y="360" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="7om-gJ-o5A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPY-YC-05c">
+                                <rect key="frame" x="168" y="360" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="ICO-Vr-wam"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3H-g0-NTe">
+                                <rect key="frame" x="244" y="360" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="fYG-Fa-glO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Saz-Wk-KkI">
+                                <rect key="frame" x="92" y="360" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="Xy9-Mi-zyl" eventType="touchUpInside" id="mi0-0h-OGy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Set Card" id="9L8-5R-mL8">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Score : 0" id="9L8-5R-mL8">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="mnQ-Ik-Apz">
+                            <connections>
+                                <action selector="resetButton:" destination="vXZ-lx-hvc" id="So8-Ng-fUc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="History" id="hlO-N9-oxR">
                             <connections>
                                 <segue destination="0fv-pP-4R4" kind="push" identifier="showHistory" id="8gG-BY-8ZZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="scoreLabel" destination="EQh-Xt-OPK" id="DoN-YM-EVP"/>
                         <outletCollection property="cardButtons" destination="yrB-qU-aWh" id="Egt-dY-nl9"/>
                         <outletCollection property="cardButtons" destination="HaX-Fu-WLX" id="etG-cL-Fbc"/>
                         <outletCollection property="cardButtons" destination="41a-Kr-rtS" id="fR7-cr-7Ss"/>
@@ -652,6 +726,10 @@
                         <outletCollection property="cardButtons" destination="mTo-f8-wuD" id="haN-0d-deO"/>
                         <outletCollection property="cardButtons" destination="6RD-3t-SZX" id="r6c-8p-f41"/>
                         <outletCollection property="cardButtons" destination="Zhs-7g-Se2" id="ZaZ-WH-cvT"/>
+                        <outletCollection property="cardButtons" destination="T3H-g0-NTe" id="HHh-aX-YqP"/>
+                        <outletCollection property="cardButtons" destination="sWm-ut-eUO" id="dwL-JW-jld"/>
+                        <outletCollection property="cardButtons" destination="Saz-Wk-KkI" id="i7e-Gk-Pbi"/>
+                        <outletCollection property="cardButtons" destination="TPY-YC-05c" id="s9r-xe-cvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdZ-mc-dk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,6 +786,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="AS4-or-5dp"/>
+        <segue reference="8gG-BY-8ZZ"/>
     </inferredMetricsTieBreakers>
 </document>

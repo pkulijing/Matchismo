@@ -13,13 +13,12 @@
 
 //protected
 @interface CardGameViewController : UIViewController
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong,nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong,nonatomic) CardMatchingGame *game;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong,nonatomic) NSMutableAttributedString *historyString;
 
 //virtual methods
--(void)chooseMatchMode;
+-(NSUInteger)matchMode;
 -(void)updateHistory;
 -(Deck *)createDeck;
 -(NSAttributedString *)titleForCard:(Card *)card;
