@@ -194,21 +194,22 @@
 			children = (
 				9F79395019CE974600C79853 /* CardMatchingGame.h */,
 				9F79395119CE974600C79853 /* CardMatchingGame.m */,
+				9F39992719C8034500C41A72 /* PlayingCardDeck.h */,
+				9F39992819C8034500C41A72 /* PlayingCardDeck.m */,
 				9F5AFDFD1A147A4100FD45A0 /* SetCard.h */,
 				9F5AFDFE1A147A4100FD45A0 /* SetCard.m */,
 				9F5AFE001A147A5E00FD45A0 /* SetCardDeck.h */,
 				9F5AFE011A147A5E00FD45A0 /* SetCardDeck.m */,
 				9F39992419C8031000C41A72 /* PlayingCard.h */,
 				9F39992519C8031000C41A72 /* PlayingCard.m */,
-				9F39992719C8034500C41A72 /* PlayingCardDeck.h */,
-				9F39992819C8034500C41A72 /* PlayingCardDeck.m */,
 				9F39992119C802E500C41A72 /* Deck.h */,
 				9F39992219C802E500C41A72 /* Deck.m */,
 				9F39991D19C8021000C41A72 /* Card.h */,
 				9F39991E19C8021000C41A72 /* Card.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
+			path = /Users/jingli/Developer/IOSdev/Matchismo/Model;
+			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
